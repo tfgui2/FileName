@@ -31,10 +31,11 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lowerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.listBox2 = new System.Windows.Forms.ListBox();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.subDelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +46,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
             this.lowerToolStripMenuItem,
-            this.saveToolStripMenuItem});
+            this.saveToolStripMenuItem,
+            this.subDelToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1634, 42);
@@ -55,16 +57,23 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(90, 36);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(90, 38);
             this.openToolStripMenuItem.Text = "open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // lowerToolStripMenuItem
             // 
             this.lowerToolStripMenuItem.Name = "lowerToolStripMenuItem";
-            this.lowerToolStripMenuItem.Size = new System.Drawing.Size(94, 36);
+            this.lowerToolStripMenuItem.Size = new System.Drawing.Size(94, 38);
             this.lowerToolStripMenuItem.Text = "lower";
             this.lowerToolStripMenuItem.Click += new System.EventHandler(this.LowerToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(82, 38);
+            this.saveToolStripMenuItem.Text = "save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // listBox1
             // 
@@ -95,12 +104,12 @@
             this.listBox2.Size = new System.Drawing.Size(713, 776);
             this.listBox2.TabIndex = 2;
             // 
-            // saveToolStripMenuItem
+            // subDelToolStripMenuItem
             // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(82, 38);
-            this.saveToolStripMenuItem.Text = "save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
+            this.subDelToolStripMenuItem.Name = "subDelToolStripMenuItem";
+            this.subDelToolStripMenuItem.Size = new System.Drawing.Size(109, 38);
+            this.subDelToolStripMenuItem.Text = "subDel";
+            this.subDelToolStripMenuItem.Click += new System.EventHandler(this.SubDelToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -130,6 +139,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem subDelToolStripMenuItem;
     }
 }
 

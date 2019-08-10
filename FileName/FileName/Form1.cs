@@ -11,27 +11,7 @@ using System.IO;
 
 namespace FileName
 {
-    public class FileData
-    {
-        public FileInfo m_fi;
-        public string oldname;
-        public string newname;
-
-        public FileData(string filename)
-        {
-            m_fi = new FileInfo(filename);
-            oldname = m_fi.Name;
-            newname = oldname;
-        }
-
-        public void Change()
-        {
-            string dest = m_fi.DirectoryName + "\\" + newname;
-            m_fi.MoveTo(dest);
-            oldname = newname;
-        }
-    }
-
+    
     public partial class Form1 : Form
     {
         public List<FileData> m_datas = new List<FileData>();
@@ -98,5 +78,32 @@ namespace FileName
             UpdateListBox();
             MessageBox.Show("Done");
         }
+
+        private void SubDelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+
+    public class FileData
+    {
+        public FileInfo m_fi;
+        public string oldname;
+        public string newname;
+
+        public FileData(string filename)
+        {
+            m_fi = new FileInfo(filename);
+            oldname = m_fi.Name;
+            newname = oldname;
+        }
+
+        public void Change()
+        {
+            string dest = m_fi.DirectoryName + "\\" + newname;
+            m_fi.MoveTo(dest);
+            oldname = newname;
+        }
+    }
+
 }
