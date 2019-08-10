@@ -34,10 +34,11 @@
             this.lowerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.subDelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trim4digitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fixoneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.fixoneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,49 +56,56 @@
             this.revertToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1634, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(1634, 48);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(90, 38);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(90, 44);
             this.openToolStripMenuItem.Text = "open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(82, 38);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(82, 44);
             this.saveToolStripMenuItem.Text = "save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // lowerToolStripMenuItem
             // 
             this.lowerToolStripMenuItem.Name = "lowerToolStripMenuItem";
-            this.lowerToolStripMenuItem.Size = new System.Drawing.Size(94, 38);
+            this.lowerToolStripMenuItem.Size = new System.Drawing.Size(94, 44);
             this.lowerToolStripMenuItem.Text = "lower";
             this.lowerToolStripMenuItem.Click += new System.EventHandler(this.LowerToolStripMenuItem_Click);
             // 
             // subDelToolStripMenuItem
             // 
             this.subDelToolStripMenuItem.Name = "subDelToolStripMenuItem";
-            this.subDelToolStripMenuItem.Size = new System.Drawing.Size(109, 38);
+            this.subDelToolStripMenuItem.Size = new System.Drawing.Size(109, 44);
             this.subDelToolStripMenuItem.Text = "subDel";
             this.subDelToolStripMenuItem.Click += new System.EventHandler(this.SubDelToolStripMenuItem_Click);
             // 
             // trim4digitToolStripMenuItem
             // 
             this.trim4digitToolStripMenuItem.Name = "trim4digitToolStripMenuItem";
-            this.trim4digitToolStripMenuItem.Size = new System.Drawing.Size(139, 38);
+            this.trim4digitToolStripMenuItem.Size = new System.Drawing.Size(139, 44);
             this.trim4digitToolStripMenuItem.Text = "trim4digit";
             this.trim4digitToolStripMenuItem.Click += new System.EventHandler(this.Trim4digitToolStripMenuItem_Click);
+            // 
+            // fixoneToolStripMenuItem
+            // 
+            this.fixoneToolStripMenuItem.Name = "fixoneToolStripMenuItem";
+            this.fixoneToolStripMenuItem.Size = new System.Drawing.Size(101, 44);
+            this.fixoneToolStripMenuItem.Text = "fixone";
+            this.fixoneToolStripMenuItem.Click += new System.EventHandler(this.FixoneToolStripMenuItem_Click);
             // 
             // revertToolStripMenuItem
             // 
             this.revertToolStripMenuItem.Name = "revertToolStripMenuItem";
-            this.revertToolStripMenuItem.Size = new System.Drawing.Size(97, 38);
+            this.revertToolStripMenuItem.Size = new System.Drawing.Size(97, 44);
             this.revertToolStripMenuItem.Text = "revert";
             this.revertToolStripMenuItem.Click += new System.EventHandler(this.RevertToolStripMenuItem_Click);
             // 
@@ -112,25 +120,29 @@
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(0, 42);
+            this.listView1.Location = new System.Drawing.Point(0, 48);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1634, 776);
+            this.listView1.Size = new System.Drawing.Size(1634, 770);
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
-            // fixoneToolStripMenuItem
+            // textBox1
             // 
-            this.fixoneToolStripMenuItem.Name = "fixoneToolStripMenuItem";
-            this.fixoneToolStripMenuItem.Size = new System.Drawing.Size(101, 38);
-            this.fixoneToolStripMenuItem.Text = "fixone";
-            this.fixoneToolStripMenuItem.Click += new System.EventHandler(this.FixoneToolStripMenuItem_Click);
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.textBox1.Location = new System.Drawing.Point(0, 622);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(1634, 196);
+            this.textBox1.TabIndex = 4;
+            this.textBox1.WordWrap = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1634, 818);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -156,6 +168,7 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ToolStripMenuItem revertToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fixoneToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

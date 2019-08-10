@@ -63,16 +63,28 @@ namespace FileName
         {
             stringForm1 = new StringForm();
         }
-
+        public void Log(string msg)
+        {
+            textBox1.AppendText(msg);
+            textBox1.AppendText(Environment.NewLine);
+        }
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ProgressForm pf = new ProgressForm();
             pf.Show(this);
-            
-            foreach (FileData fd in m_datas)
+            try
             {
-                fd.Save();
-                pf.Plus();
+
+                foreach (FileData fd in m_datas)
+                {
+                    Log("Save: " + fd.oldname + "->" + fd.newname);
+                    fd.Save();
+                    pf.Plus();
+                }
+            }
+            catch (Exception x)
+            {
+                Log(x.Message);
             }
 
             UpdateListBox();
@@ -177,23 +189,21 @@ namespace FileName
         {
             if (changed)
             {
-                try
-                {
-                    string dest = m_fi.DirectoryName + "\\" + newname;
-                    m_fi.MoveTo(dest);
-                    oldname = newname;
-                    changed = false;
-                }
-                catch(Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                }
+                string dest = m_fi.DirectoryName + "\\" + newname;
+                m_fi.MoveTo(dest);
+                oldname = newname;
+                changed = false;
             }
         }
 
         public void Lower()
         {
+            string temp = newname;
             newname = newname.ToLower();
+            if (temp != newname)
+            {
+                changed = true;
+            }
         }
 
         public void SubDel(string subDel)
