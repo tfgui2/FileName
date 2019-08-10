@@ -30,12 +30,13 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lowerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lowerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.subDelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.listBox2 = new System.Windows.Forms.ListBox();
-            this.subDelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trim4digitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,9 +46,10 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
-            this.lowerToolStripMenuItem,
             this.saveToolStripMenuItem,
-            this.subDelToolStripMenuItem});
+            this.lowerToolStripMenuItem,
+            this.subDelToolStripMenuItem,
+            this.trim4digitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1634, 42);
@@ -61,6 +63,13 @@
             this.openToolStripMenuItem.Text = "open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(82, 38);
+            this.saveToolStripMenuItem.Text = "save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
+            // 
             // lowerToolStripMenuItem
             // 
             this.lowerToolStripMenuItem.Name = "lowerToolStripMenuItem";
@@ -68,12 +77,12 @@
             this.lowerToolStripMenuItem.Text = "lower";
             this.lowerToolStripMenuItem.Click += new System.EventHandler(this.LowerToolStripMenuItem_Click);
             // 
-            // saveToolStripMenuItem
+            // subDelToolStripMenuItem
             // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(82, 38);
-            this.saveToolStripMenuItem.Text = "save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
+            this.subDelToolStripMenuItem.Name = "subDelToolStripMenuItem";
+            this.subDelToolStripMenuItem.Size = new System.Drawing.Size(109, 38);
+            this.subDelToolStripMenuItem.Text = "subDel";
+            this.subDelToolStripMenuItem.Click += new System.EventHandler(this.SubDelToolStripMenuItem_Click);
             // 
             // listBox1
             // 
@@ -104,12 +113,12 @@
             this.listBox2.Size = new System.Drawing.Size(713, 776);
             this.listBox2.TabIndex = 2;
             // 
-            // subDelToolStripMenuItem
+            // trim4digitToolStripMenuItem
             // 
-            this.subDelToolStripMenuItem.Name = "subDelToolStripMenuItem";
-            this.subDelToolStripMenuItem.Size = new System.Drawing.Size(109, 38);
-            this.subDelToolStripMenuItem.Text = "subDel";
-            this.subDelToolStripMenuItem.Click += new System.EventHandler(this.SubDelToolStripMenuItem_Click);
+            this.trim4digitToolStripMenuItem.Name = "trim4digitToolStripMenuItem";
+            this.trim4digitToolStripMenuItem.Size = new System.Drawing.Size(139, 38);
+            this.trim4digitToolStripMenuItem.Text = "trim4digit";
+            this.trim4digitToolStripMenuItem.Click += new System.EventHandler(this.Trim4digitToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -140,6 +149,7 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem subDelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem trim4digitToolStripMenuItem;
     }
 }
 
