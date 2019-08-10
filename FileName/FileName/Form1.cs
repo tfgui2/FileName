@@ -15,7 +15,7 @@ namespace FileName
     public partial class Form1 : Form
     {
         public List<FileData> m_datas = new List<FileData>();
-        public StringForm sf;
+        public StringForm stringForm1;
 
         public Form1()
         {
@@ -24,16 +24,23 @@ namespace FileName
 
         private void UpdateListBox()
         {
-            listBox1.Items.Clear();
-            foreach (FileData fd in m_datas)
-            {
-                listBox1.Items.Add(fd.oldname);
-            }
+            listView1.Clear();
+            listView1.Columns.Add("oldname", 400);
+            listView1.Columns.Add("newname", 400);
 
-            listBox2.Items.Clear();
             foreach (FileData fd in m_datas)
             {
-                listBox2.Items.Add(fd.newname);
+                string[] arr = new string[2];
+                arr[0] = fd.oldname;
+                arr[1] = fd.newname;
+                ListViewItem lvi = new ListViewItem(arr);
+
+                if (fd.changed)
+                {
+                    lvi.BackColor = Color.Aquamarine;
+                }
+
+                listView1.Items.Add(lvi);
             }
         }
 
@@ -54,17 +61,17 @@ namespace FileName
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            sf = new StringForm();
+            stringForm1 = new StringForm();
         }
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ProgressForm pf = new ProgressForm();
             pf.Show(this);
-
+            
             foreach (FileData fd in m_datas)
             {
-                fd.Change();
+                fd.Save();
                 pf.Plus();
             }
 
@@ -86,12 +93,16 @@ namespace FileName
 
         private void SubDelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string sel = (string)(listBox1.SelectedItem) ?? "";
-
-            sf.Init(sel);
-            if (sf.ShowDialog(this) == DialogResult.OK)
+            string sel = "";
+            if (listView1.SelectedItems.Count > 0)
             {
-                string subDel = sf.Get();
+                sel = listView1.SelectedItems[0].SubItems[0].Text;
+            }
+
+            stringForm1.Set(sel);
+            if (stringForm1.ShowDialog(this) == DialogResult.OK)
+            {
+                string subDel = stringForm1.Get();
                 if (subDel.Length > 0)
                 {
                     foreach (FileData fd in m_datas)
@@ -113,6 +124,38 @@ namespace FileName
 
             UpdateListBox();
         }
+
+        private void RevertToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+                return;
+
+            foreach (ListViewItem lvi in listView1.SelectedItems)
+            {
+                int index = lvi.Index;
+                FileData fd = m_datas[index];
+                fd.Revert();
+            }
+
+            UpdateListBox();
+        }
+
+        private void FixoneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count != 1)
+                return;
+
+            stringForm1.Set(listView1.SelectedItems[0].SubItems[1].Text);
+            if (stringForm1.ShowDialog() == DialogResult.OK)
+            {
+                string res = stringForm1.Get();
+                ListViewItem lvi = listView1.SelectedItems[0];
+                int index = lvi.Index;
+                m_datas[index].Fix(res);
+
+                UpdateListBox();
+            }
+        }
     }
 
     public class FileData
@@ -121,6 +164,8 @@ namespace FileName
         public string oldname;
         public string newname;
 
+        public bool changed = false;
+
         public FileData(string filename)
         {
             m_fi = new FileInfo(filename);
@@ -128,11 +173,22 @@ namespace FileName
             newname = oldname;
         }
 
-        public void Change()
+        public void Save()
         {
-            string dest = m_fi.DirectoryName + "\\" + newname;
-            m_fi.MoveTo(dest);
-            oldname = newname;
+            if (changed)
+            {
+                try
+                {
+                    string dest = m_fi.DirectoryName + "\\" + newname;
+                    m_fi.MoveTo(dest);
+                    oldname = newname;
+                    changed = false;
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+            }
         }
 
         public void Lower()
@@ -143,7 +199,14 @@ namespace FileName
         public void SubDel(string subDel)
         {
             if (subDel.Length > 0)
+            {
+                string temp = newname;
                 newname = newname.Replace(subDel, "");
+                if (temp != newname)
+                {
+                    changed = true;
+                }
+            }
         }
 
         public void Trim4digit()
@@ -158,10 +221,25 @@ namespace FileName
             if (result == false)
                 return;
 
+            string temp = newname;
             newname = newname.Remove(0, 4);
+            if (temp != newname)
+            {
+                changed = true;
+            }
         }
 
-        
+        public void Revert()
+        {
+            newname = oldname;
+            changed = false;
+        }
+
+        public void Fix(string fix)
+        {
+            newname = fix;
+            changed = true;
+        }
     }
 
 }

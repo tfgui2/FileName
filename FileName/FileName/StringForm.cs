@@ -17,7 +17,7 @@ namespace FileName
             InitializeComponent();
         }
 
-        public void Init(string text)
+        public void Set(string text)
         {
             textBox1.Text = text;
         }

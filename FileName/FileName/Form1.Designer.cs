@@ -33,10 +33,11 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lowerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.subDelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.listBox2 = new System.Windows.Forms.ListBox();
             this.trim4digitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.fixoneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +50,9 @@
             this.saveToolStripMenuItem,
             this.lowerToolStripMenuItem,
             this.subDelToolStripMenuItem,
-            this.trim4digitToolStripMenuItem});
+            this.trim4digitToolStripMenuItem,
+            this.fixoneToolStripMenuItem,
+            this.revertToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1634, 42);
@@ -84,35 +87,6 @@
             this.subDelToolStripMenuItem.Text = "subDel";
             this.subDelToolStripMenuItem.Click += new System.EventHandler(this.SubDelToolStripMenuItem_Click);
             // 
-            // listBox1
-            // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.ItemHeight = 24;
-            this.listBox1.Location = new System.Drawing.Point(0, 42);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(713, 776);
-            this.listBox1.TabIndex = 1;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Multiselect = true;
-            // 
-            // listBox2
-            // 
-            this.listBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.HorizontalScrollbar = true;
-            this.listBox2.ItemHeight = 24;
-            this.listBox2.Location = new System.Drawing.Point(921, 42);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.ScrollAlwaysVisible = true;
-            this.listBox2.Size = new System.Drawing.Size(713, 776);
-            this.listBox2.TabIndex = 2;
-            // 
             // trim4digitToolStripMenuItem
             // 
             this.trim4digitToolStripMenuItem.Name = "trim4digitToolStripMenuItem";
@@ -120,13 +94,44 @@
             this.trim4digitToolStripMenuItem.Text = "trim4digit";
             this.trim4digitToolStripMenuItem.Click += new System.EventHandler(this.Trim4digitToolStripMenuItem_Click);
             // 
+            // revertToolStripMenuItem
+            // 
+            this.revertToolStripMenuItem.Name = "revertToolStripMenuItem";
+            this.revertToolStripMenuItem.Size = new System.Drawing.Size(97, 38);
+            this.revertToolStripMenuItem.Text = "revert";
+            this.revertToolStripMenuItem.Click += new System.EventHandler(this.RevertToolStripMenuItem_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Multiselect = true;
+            // 
+            // listView1
+            // 
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(0, 42);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(1634, 776);
+            this.listView1.TabIndex = 3;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // fixoneToolStripMenuItem
+            // 
+            this.fixoneToolStripMenuItem.Name = "fixoneToolStripMenuItem";
+            this.fixoneToolStripMenuItem.Size = new System.Drawing.Size(101, 38);
+            this.fixoneToolStripMenuItem.Text = "fixone";
+            this.fixoneToolStripMenuItem.Click += new System.EventHandler(this.FixoneToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1634, 818);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -144,12 +149,13 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem lowerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem subDelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trim4digitToolStripMenuItem;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ToolStripMenuItem revertToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fixoneToolStripMenuItem;
     }
 }
 
